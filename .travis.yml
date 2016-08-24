@@ -1,2 +1,2 @@
 language: java
-script: cd desapp-grupoc-backend && mvn clean verify
+script: cd desapp-groupc-backend && mvn clean verify
