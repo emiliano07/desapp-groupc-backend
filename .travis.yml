@@ -2,5 +2,5 @@ language: java
 script: cd desapp-groupc-backend && mvn clean verify
 deploy:
   provider: heroku
-  api_key: f73552a3-f51f-4b4f-a62b-4c4f467aad3e
+  api_key: 502b795a-1210-464b-80f7-6bb1c00b65f1
   app: stain
