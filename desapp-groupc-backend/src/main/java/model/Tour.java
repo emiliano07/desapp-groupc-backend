@@ -17,16 +17,12 @@ public class Tour {
 		this.events = new ArrayList<Event>();
 		this.amount = 0;
 		this.transport = transport;
-		this.friends = new ArrayList<User>();
+		this.friends = friends;
 		this.date = date;
 	}
 	
 	public void addEvent(Event event){
 		this.events.add(event);
 		this.amount += event.getAMount();
-	}
-	
-	public TypeOfTour getTourType(){
-		return this.type;
 	}
 }

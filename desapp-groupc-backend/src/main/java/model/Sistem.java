@@ -21,9 +21,13 @@ public class Sistem {
 	}
 	
 	public User searchFriend(User user) throws Exception{
-		if(this.users.contains(user)){
-			return this.users.get(this.users.indexOf(users));
+		this.existsUser(user);
+		return this.users.get(this.users.indexOf(users));
+	}
+	
+	public void existsUser(User user) throws Exception{
+		if(! this.users.contains(user)){
+			new NoFriendException();
 		}
-		throw new Exception();
 	}
 }
