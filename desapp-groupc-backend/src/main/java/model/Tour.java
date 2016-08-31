@@ -25,4 +25,8 @@ public class Tour {
 		this.events.add(event);
 		this.amount += event.getAMount();
 	}
+	
+	public TypeOfTour getTipe(){
+		return this.type;
+	}
 }

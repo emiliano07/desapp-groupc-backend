@@ -61,6 +61,7 @@ public class User {
 	
 	public void newTour(TypeOfTour typeOfTour, TypeOfTransport typeOfTransport, ArrayList<User> friends, int amount, Date date){
 	//Este amount es el que quiere gastar el usuario
+	//En el listado de friends el usuario que lo creo esta incluido => friends = user + friend + friend ...
 		this.sistem.newTour(typeOfTour, typeOfTransport, friends, amount, date);
 	}
 	
