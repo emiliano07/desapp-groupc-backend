@@ -15,6 +15,7 @@ public class Profile {
 		this.limitAmount = limitAmount;
 		this.typeOfTransport = typeOfTransport;
 	}
+<<<<<<< .mine
 
 	public Type getTypeOfFilm() {
 		return typeOfFilm;
@@ -55,4 +56,46 @@ public class Profile {
 	public void setTypeOfTransport(TypeOfTransport typeOfTransport) {
 		this.typeOfTransport = typeOfTransport;
 	}
+=======
+	
+	//DEBERIAMOS PONER TODOS LOS TYPES JUNTOS Y NO DIFERENCIARLOS???
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
 }
