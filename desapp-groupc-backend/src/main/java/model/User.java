@@ -21,6 +21,50 @@ public class User {
 		this.friendsRequests = new ArrayList<User>();
 	}
 	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public ArrayList<Tour> getTours() {
+		return tours;
+	}
+
+	public void setTours(ArrayList<Tour> tours) {
+		this.tours = tours;
+	}
+
+	public ArrayList<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(ArrayList<Event> events) {
+		this.events = events;
+	}
+
+	public Sistem getSistem() {
+		return sistem;
+	}
+
+	public void setSistem(Sistem sistem) {
+		this.sistem = sistem;
+	}
+
+	public ArrayList<User> getFriendsRequests() {
+		return friendsRequests;
+	}
+
+	public void setFriendsRequests(ArrayList<User> friendsRequests) {
+		this.friendsRequests = friendsRequests;
+	}
+
+	public void setFriends(ArrayList<User> friends) {
+		this.friends = friends;
+	}
+
 	public void loadProfile(Profile profile){
 	//Ver si es necesario otro metodo para modificar
 		this.profile = profile;

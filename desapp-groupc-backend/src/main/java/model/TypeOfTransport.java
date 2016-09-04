@@ -4,5 +4,6 @@ public enum TypeOfTransport {
 
 	PUBLIC,
 	CAR,
-	WALKING;
+	WALKING,
+	NO_TRANSPORT;
 }
