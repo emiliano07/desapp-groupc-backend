@@ -15,4 +15,6 @@ public class Profile {
 		this.limitAmount = limitAmount;
 		this.typeOfTransport = typeOfTransport;
 	}
+	
+	//DEBERIAMOS PONER TODOS LOS TYPES JUNTOS Y NO DIFERENCIARLOS???
 }
