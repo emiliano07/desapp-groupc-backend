@@ -9,7 +9,7 @@ public class User {
 	public ArrayList<Tour> tours;
 	public ArrayList<Event> events;
 	public ArrayList<User> friends;
-	public Sistem sistem;
+	public Sistem sistem; 
 	public ArrayList<User> friendsRequests;
 	
 	public User(Sistem sistem){

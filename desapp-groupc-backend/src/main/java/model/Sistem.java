@@ -19,7 +19,12 @@ public class Sistem {
 
 	public User searchFriend(User user) throws Exception{
 		this.existsUser(user);
-		return this.users.get(this.users.indexOf(users));
+		User usuario = null;
+		for (User u  : users){
+			if(users.contains(u))
+				usuario = u;
+		}
+		return usuario;
 	}
 	
 	public void existsUser(User user) throws Exception{
@@ -74,7 +79,7 @@ public class Sistem {
 		tour.setEventOptions1(events);
 		tour.setEventOptions2(events);
 	}
-	
+	 
 	public void selectEvent1ForATour(Event event, Tour tour){
 		tour.addEvent1(1, event);
 		this.refreshEvents2(tour);

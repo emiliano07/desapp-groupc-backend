@@ -65,4 +65,80 @@ public class Tour {
 	public TypeOfTour getTipe(){
 		return this.type;
 	}
+
+	public TypeOfTour getType() {
+		return type;
+	}
+
+	public void setType(TypeOfTour type) {
+		this.type = type;
+	}
+
+	public Event getEvent2() {
+		return event2;
+	}
+
+	public void setEvent2(Event event2) {
+		this.event2 = event2;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public TypeOfTransport getTransport() {
+		return transport;
+	}
+
+	public void setTransport(TypeOfTransport transport) {
+		this.transport = transport;
+	}
+
+	public ArrayList<User> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(ArrayList<User> friends) {
+		this.friends = friends;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public int getRadio() {
+		return radio;
+	}
+
+	public void setRadio(int radio) {
+		this.radio = radio;
+	}
+
+	public TypeOfScheduler getScheduler() {
+		return scheduler;
+	}
+
+	public void setScheduler(TypeOfScheduler scheduler) {
+		this.scheduler = scheduler;
+	}
+
+	public ArrayList<Event> getEventOptions1() {
+		return eventOptions1;
+	}
+
+	public void setEvent1(Event event1) {
+		this.event1 = event1;
+	}
+
+	public void setLimitAmount(int limitAmount) {
+		this.limitAmount = limitAmount;
+	}
 }

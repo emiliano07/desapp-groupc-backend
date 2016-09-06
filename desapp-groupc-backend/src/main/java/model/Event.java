@@ -21,6 +21,10 @@ public class Event {
 		this.suggestions = new ArrayList<Event>();
 	}
 	
+	public void setSuggestions(ArrayList<Event> suggestions) {
+		this.suggestions = suggestions;
+	}
+
 	public int getAmount(){
 		return this.amount;
 	}
