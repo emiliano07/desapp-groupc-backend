@@ -3,6 +3,7 @@ package builders;
 import java.util.ArrayList;
 
 import model.Event;
+import model.LogSistem;
 import model.Profile;
 import model.Sistem;
 import model.Tour;
@@ -11,6 +12,9 @@ import model.User;
 
 public class UserBuilder {
 	
+	private String userName;
+	private String password;
+	private String mail;
 	private Profile profile;
 	private ArrayList<Tour> tours;
 	private ArrayList<Event> events;
@@ -19,11 +23,14 @@ public class UserBuilder {
 	private ArrayList<User> friendsRequests;
 	
 	public UserBuilder(){
+		this.userName = userName;
+		this.password = password;
+		this.mail = mail;
         this.profile = new Profile(Type.NO_FILM, Type.NO_MUSIC, Type.NO_FOOD, 500);
         this.tours = new ArrayList<Tour>();
         this.events = new ArrayList<Event>();
         this.friends = new ArrayList<User>();
-        this.sistem = new Sistem();
+        this.sistem = new Sistem(new LogSistem());
         this.friendsRequests = new ArrayList<User>();
     }
     
@@ -32,13 +39,28 @@ public class UserBuilder {
     }
 	
 	 public User build(){
-		 User user =  new User(sistem);
+		 User user =  new User(sistem, userName, password, mail);
 		 user.setProfile(this.profile);
 		 user.setTours(tours);
 		 user.setEvents(events);
 		 user.setFriends(friends);
 		 user.setFriendsRequests(friendsRequests);
 	     return user;
+	 }
+	 
+	 public UserBuilder withUserName(String userName){
+		 this.userName = userName;
+	     return this;
+	 }
+	 
+	 public UserBuilder withMail(String mail){
+		 this.mail = mail;
+	     return this;
+	 }
+	 
+	 public UserBuilder withPassword(String password){
+		 this.password = password;
+	     return this;
 	 }
 	 
 	 public UserBuilder withProfile(Profile profile){
