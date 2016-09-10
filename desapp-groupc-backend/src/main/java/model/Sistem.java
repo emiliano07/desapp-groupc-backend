@@ -7,10 +7,12 @@ public class Sistem {
 	
 	public ArrayList<User> users;
 	public ArrayList<Event> allEvents;
+	public LogSistem logSistem;
 	
-	public Sistem(){
+	public Sistem(LogSistem logSistem){
 		this.users = new ArrayList<User>();
 		this.allEvents = new ArrayList<Event>();
+		this.logSistem = logSistem;
 	}
 	
 	public void addEvent(Event event){
@@ -29,7 +31,7 @@ public class Sistem {
 	
 	public void existsUser(User user) throws Exception{
 		if(! this.users.contains(user)){
-			new NoFriendException();
+			throw new NoFriendException();
 		}
 	}
 	
@@ -88,5 +90,34 @@ public class Sistem {
 	
 	private Boolean conditionE(Event event, Tour tour){
 		return event.getAmount() <= (tour.getLimitAmount() - tour.getEvent1().getAmount());
+	}
+	
+	public void registerNewUser(String userName, String password, String mail) throws Exception{
+		this.logSistem.newUser(userName, password);
+		User user = new User(this, userName, password, mail);
+		this.users.add(user);
+	}
+	
+	public void changePassword(String userName, String oldPassword, String newPassword)throws Exception{
+		this.logSistem.changePassword(userName, oldPassword, newPassword);
+		this.obtainUser(userName).setPassword(newPassword);
+	}
+	
+	public User obtainUser(String userName) throws Exception{
+		for(User user: this.users){
+			if(user.getName() == userName){
+				return user;
+			}
+		}
+		throw new UserNotExistException();
+	}
+	
+	/*public void cerrarSesion(String nombreDeUsuario){
+		this.obtenerUsuario(nombreDeUsuario).setLogueado(false);
+	}*/
+	
+	public void loguearse(String userName, String password) throws Exception{
+		this.logSistem.logIn(userName, password);
+		//this.obtenerUsuario(userName).setLogueado(true);
 	}
 }

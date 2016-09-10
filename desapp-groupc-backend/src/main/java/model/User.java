@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class User {
 	
+	public String userName;
+	public String password;
+	public String mail;
 	public Profile profile;
 	public ArrayList<Tour> tours;
 	public ArrayList<Event> events;
@@ -12,7 +15,10 @@ public class User {
 	public Sistem sistem; 
 	public ArrayList<User> friendsRequests;
 	
-	public User(Sistem sistem){
+	public User(Sistem sistem, String userName, String password, String mail){
+		this.userName = userName;
+		this.password = password;
+		this.mail = mail;
 		this.profile = null;
 		this.tours = new ArrayList<Tour>();
 		this.events = new ArrayList<Event>();
@@ -25,6 +31,14 @@ public class User {
 		return profile;
 	}
 
+	public String getName(){
+		return this.userName;
+	}
+	
+	public void setPassword(String password){
+		this.password = password;
+	}
+	
 	public void setProfile(Profile profile) {
 		this.profile = profile;
 	}
