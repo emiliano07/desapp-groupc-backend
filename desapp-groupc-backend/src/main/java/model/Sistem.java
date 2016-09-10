@@ -49,10 +49,10 @@ public class Sistem {
 		}
 		tour.setEventOptions1(events);
 		tour.setEventOptions2(events);
-	}
+	}  
 	
 	private Boolean conditionA(Event event, Tour tour){
-		return event.getDate() == tour.getDate();
+		return event.getDate().equals(tour.getDate());
 	}
 	
 	private Boolean conditionB(Event event, Tour tour){
@@ -69,6 +69,7 @@ public class Sistem {
 	 
 	public void selectEvent1ForATour(Event event, Tour tour){
 		tour.addEvent1(1, event);
+		tour.eventOptions2.remove(event);
 		this.refreshEvents2(tour);
 	}
 

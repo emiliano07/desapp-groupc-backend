@@ -1,6 +1,6 @@
 package domain;
 
-import java.util.Date;
+import static org.junit.Assert.fail;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,8 +14,6 @@ import model.NoFriendException;
 import model.Profile;
 import model.Tour;
 import model.Type;
-import model.TypeOfScheduler;
-import model.TypeOfTour;
 import model.User;
 
 public class UserTest {
@@ -51,7 +49,7 @@ public class UserTest {
 			User u = user01.searchFriend(user02);
 			Assert.assertEquals(Type.PIZZA,u.getProfile().getTypeOfFood());
 		}catch (NoFriendException e) {
-			Assert.fail("There is no friend with the name you are looking for");
+			fail(e.toString());
 		}
 	}
 	
@@ -64,7 +62,7 @@ public class UserTest {
 		try {
 			user01.searchFriend(user02);
 		}catch (NoFriendException e) {
-			System.out.println(e);
+			fail(e.toString());
 		}
 	} 
 	
@@ -131,15 +129,5 @@ public class UserTest {
 					  .build();
 		user.addEvent(event);
 		Assert.assertEquals(4, user.getEvents().get(0).limitOfPersons);
-	}
-	
-	@Test
-    public void test_newTour() {
-		User user = UserBuilder.aUser().build();
-		Event event = EventBuilder.aEvent()
-					  .withAddress("Quilmes")
-					  .build();
-		user.getSistem().addEvent(event);
-		user.newTour(TypeOfTour.GASOLERA, new Date(), TypeOfScheduler.NIGHT, 300, user.getFriends());
 	}
 }	

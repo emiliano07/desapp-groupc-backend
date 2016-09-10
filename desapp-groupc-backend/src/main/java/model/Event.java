@@ -1,7 +1,9 @@
 package model;
 
+
 import java.util.ArrayList;
 import java.util.Date;
+
 
 public class Event {
 
@@ -11,7 +13,7 @@ public class Event {
 	public String address;
 	public int amount;
 	public int limitOfPersons;
-	public ArrayList<Event> suggestions; //Ver como lo hacemos “quienes optaron por esta opción, también optaron por”
+	public ArrayList<Event> suggestions; //Ver como lo hacemos ï¿½quienes optaron por esta opciï¿½n, tambiï¿½n optaron porï¿½
 	
 	public Event(ArrayList<Type> types, Date date, TypeOfScheduler scheduler, String address, int amount, int limitOfPersons){
 		this.types = types;

@@ -49,10 +49,6 @@ public class User {
 		return sistem;
 	}
 
-	public void setSistem(Sistem sistem) {
-		this.sistem = sistem;
-	}
-
 	public ArrayList<User> getFriendsRequests() {
 		return friendsRequests;
 	}
@@ -104,7 +100,7 @@ public class User {
 	}
 	
 	public void newTour(TypeOfTour typeOfTour, Date date, TypeOfScheduler scheduler, int limitAmount, ArrayList<User> friends){
-		this.sistem.newTour(typeOfTour, date, scheduler, limitAmount, friends);
+		this.tours.add(this.sistem.newTour(typeOfTour, date, scheduler, limitAmount, friends));
 	}
 	
 	public void acceptTour(Tour tour){

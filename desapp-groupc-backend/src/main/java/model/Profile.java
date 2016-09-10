@@ -18,31 +18,11 @@ public class Profile {
 		return typeOfFilm;
 	}
 
-	public void setTypeOfFilm(Type typeOfFilm) {
-		this.typeOfFilm = typeOfFilm;
-	}
-
 	public Type getTypeOfMusic() {
 		return typeOfMusic;
 	}
 
-	public void setTypeOfMusic(Type typeOfMusic) {
-		this.typeOfMusic = typeOfMusic;
-	}
-
 	public Type getTypeOfFood() {
 		return typeOfFood;
-	}
-
-	public void setTypeOfFood(Type typeOfFood) {
-		this.typeOfFood = typeOfFood;
-	}
-
-	public int getLimitAmount() {
-		return limitAmount;
-	}
-
-	public void setLimitAmount(int limitAmount) {
-		this.limitAmount = limitAmount;
 	}
 }

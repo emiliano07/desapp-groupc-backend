@@ -57,22 +57,7 @@ public class Tour {
 		}
 		this.amount += event.getAmount();
 	}
-	
-	public TypeOfTour getTipe(){
-		return this.type;
-	}
 
-	public TypeOfTour getType() {
-		return type;
-	}
-
-	public void setType(TypeOfTour type) {
-		this.type = type;
-	}
-
-	public Event getEvent2() {
-		return event2;
-	}
 
 	public void setEvent2(Event event2) {
 		this.event2 = event2;
@@ -90,24 +75,12 @@ public class Tour {
 		return friends;
 	}
 
-	public void setFriends(ArrayList<User> friends) {
-		this.friends = friends;
-	}
-
 	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public TypeOfScheduler getScheduler() {
 		return scheduler;
-	}
-
-	public void setScheduler(TypeOfScheduler scheduler) {
-		this.scheduler = scheduler;
 	}
 
 	public ArrayList<Event> getEventOptions1() {
@@ -118,7 +91,4 @@ public class Tour {
 		this.event1 = event1;
 	}
 
-	public void setLimitAmount(int limitAmount) {
-		this.limitAmount = limitAmount;
-	}
 }
