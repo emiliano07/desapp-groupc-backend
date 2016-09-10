@@ -8,51 +8,46 @@ import model.Tour;
 import model.Type;
 import model.TypeOfScheduler;
 import model.TypeOfTour;
-import model.TypeOfTransport;
 import model.User;
 
 public class TourBuilder {
 	
 	private TypeOfTour type;
-	private Event event1;
-	private Event event2;
-	private int amount;
-	private TypeOfTransport transport;
-	private ArrayList<User> friends;
 	private Date date;
-	private int radio;
 	private TypeOfScheduler scheduler;
+	private int amount;
+	private int limitAmount;
+	private ArrayList<User> friends;
 	private ArrayList<Event> eventOptions1;
 	private ArrayList<Event> eventOptions2;
-	private int limitAmount;
+	private Event event1;
+	private Event event2;
 	
 	
 	public TourBuilder(){
 		this.type = TypeOfTour.GASOLERA;
-		this.event1 = new Event(new ArrayList<Type>(), new Date(), "no-address", 100, 2);
-		this.event2 = new Event(new ArrayList<Type>(), new Date(), "no-address", 200, 4);
-		this.amount = 1000;
-		this.transport = TypeOfTransport.NO_TRANSPORT;
-		this.friends = new ArrayList<User>();
 		this.date = new Date();
-		this.radio = 10;
 		this.scheduler = TypeOfScheduler.MORNING;
+		this.amount = 1000;
+		this.limitAmount = 500;
+		this.friends = new ArrayList<User>();
 		this.eventOptions1 = new ArrayList<Event>();
 		this.eventOptions2 = new ArrayList<Event>();
-		this.limitAmount = 500;
-    }
+		this.event1 = new Event(new ArrayList<Type>(), new Date(), TypeOfScheduler.MORNING, "no-address", 100, 2);
+		this.event2 = new Event(new ArrayList<Type>(), new Date(), TypeOfScheduler.MORNING, "no-address", 200, 4);
+	}		
     
 	public static TourBuilder aTour(){
         return new TourBuilder();
     }
 	
 	 public Tour build(){
-		 Tour tour =  new Tour(type, transport,friends, date, radio, scheduler, limitAmount);
-		 tour.setEvent1(event1);
-		 tour.setEvent2(event2);
+		 Tour tour =  new Tour(type, date, scheduler, limitAmount, friends);
 		 tour.setAmount(amount);
 		 tour.setEventOptions1(eventOptions1);
 		 tour.setEventOptions1(eventOptions2);
+		 tour.setEvent1(event1);
+		 tour.setEvent2(event2);
 	     return tour;
 	 }
 	 
@@ -76,11 +71,6 @@ public class TourBuilder {
 	     return this;
 	 }
 	 
-	 public TourBuilder withTransport(TypeOfTransport transport){
-		 this.transport = transport;
-	     return this;
-	 }
-	 
 	 public TourBuilder withFriends(ArrayList<User> friends){
 		 this.friends = friends;
 	     return this;
@@ -88,11 +78,6 @@ public class TourBuilder {
 	 
 	 public TourBuilder withDate(Date date){
 		 this.date = date;
-	     return this;
-	 }
-	 
-	 public TourBuilder withRadio(int radio){
-		 this.radio = radio;
 	     return this;
 	 }
 	 

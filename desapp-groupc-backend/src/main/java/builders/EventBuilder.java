@@ -5,11 +5,13 @@ import java.util.Date;
 
 import model.Event;
 import model.Type;
+import model.TypeOfScheduler;
 
 public class EventBuilder {
 	
 	private ArrayList<Type> types;
 	private Date date;
+	private TypeOfScheduler scheduler;
 	private String address;
 	private int amount;
 	private int limitOfPersons;
@@ -19,6 +21,7 @@ public class EventBuilder {
 	public EventBuilder(){
 		this.types = new ArrayList<Type>();
 		this.date = new Date();
+		this.scheduler = TypeOfScheduler.NIGHT;
 		this.address = "no-address";
 		this.amount = 100;
 		this.limitOfPersons = 2;
@@ -30,7 +33,7 @@ public class EventBuilder {
     }
 	
 	 public Event build(){
-		 Event event =  new Event(types, date, address, amount, limitOfPersons);
+		 Event event =  new Event(types, date, scheduler, address, amount, limitOfPersons);
 		 event.setSuggestions(suggestions);
 	     return event;
 	 }
@@ -42,6 +45,11 @@ public class EventBuilder {
 	 
 	 public EventBuilder withDate(Date date){
 		 this.date = date;
+	     return this;
+	 }
+	 
+	 public EventBuilder withScheduler(TypeOfScheduler scheduler){
+		 this.scheduler = scheduler;
 	     return this;
 	 }
 	 

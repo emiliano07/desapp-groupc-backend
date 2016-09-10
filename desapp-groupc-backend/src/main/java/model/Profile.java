@@ -6,14 +6,12 @@ public class Profile {
 	public Type typeOfMusic;
 	public Type typeOfFood;
 	public int limitAmount;
-	public TypeOfTransport typeOfTransport;
 	
-	public Profile(Type typeOfFilm, Type typeOfMusic, Type typeOfFood, int limitAmount, TypeOfTransport typeOfTransport){
+	public Profile(Type typeOfFilm, Type typeOfMusic, Type typeOfFood, int limitAmount){
 		this.typeOfFilm = typeOfFilm;
 		this.typeOfMusic = typeOfMusic;
 		this.typeOfFood = typeOfFood;
 		this.limitAmount = limitAmount;
-		this.typeOfTransport = typeOfTransport;
 	}
 
 	public Type getTypeOfFilm() {
@@ -47,13 +45,4 @@ public class Profile {
 	public void setLimitAmount(int limitAmount) {
 		this.limitAmount = limitAmount;
 	}
-
-	public TypeOfTransport getTypeOfTransport() {
-		return typeOfTransport;
-	}
-
-	public void setTypeOfTransport(TypeOfTransport typeOfTransport) {
-		this.typeOfTransport = typeOfTransport;
-	}
-	//DEBERIAMOS PONER TODOS LOS TYPES JUNTOS Y NO DIFERENCIARLOS???
 }

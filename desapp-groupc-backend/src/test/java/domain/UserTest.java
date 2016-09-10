@@ -1,17 +1,14 @@
 package domain;
 
-
-
-
 import java.util.Date;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import builders.EventBuilder;
 import builders.ProfileBuilder;
 import builders.TourBuilder;
 import builders.UserBuilder;
-import junit.framework.Assert;
 import model.Event;
 import model.NoFriendException;
 import model.Profile;
@@ -19,7 +16,6 @@ import model.Tour;
 import model.Type;
 import model.TypeOfScheduler;
 import model.TypeOfTour;
-import model.TypeOfTransport;
 import model.User;
 
 public class UserTest {
@@ -28,7 +24,7 @@ public class UserTest {
     public void test_addFriend(){
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser()
-				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250,TypeOfTransport.CAR))
+				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
 				.build();
 		user01.addFriend(user02);
 		Assert.assertEquals(1,user01.getFriends().size());
@@ -47,7 +43,7 @@ public class UserTest {
     public void test_searchFriendCorrectly() throws Exception{
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser()
-				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250,TypeOfTransport.CAR))
+				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
 				.build();
 		try {
 			user01.addFriend(user02);
@@ -63,7 +59,7 @@ public class UserTest {
     public void test_searchFriendIncorrectly() throws Exception{
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser()
-				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250,TypeOfTransport.CAR))
+				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
 				.build();
 		try {
 			user01.searchFriend(user02);
@@ -76,7 +72,7 @@ public class UserTest {
     public void test_sendFriendRequest(){
 		User user = UserBuilder.aUser().build();
 		User friend = UserBuilder.aUser()
-				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250,TypeOfTransport.CAR))
+				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
 				.build();
 		user.sendFriendRequest(friend);
 		Assert.assertEquals(Type.PIZZA,user.getFriendsRequests().get(0).getProfile().getTypeOfFood());
@@ -89,7 +85,6 @@ public class UserTest {
 				.withTypeOfMusic(Type.ELECTRONIC)
 				.withTypeOfFilm(Type.ADVENTURE)
 				.withTypeOfFood(Type.GRILL)
-				.withTypeOfTransport(TypeOfTransport.CAR)
 				.withLimitAmount(700)
 				.build();
 		user.loadProfile(profile);
@@ -100,7 +95,7 @@ public class UserTest {
     public void test_acceptFriend() {
 		User user = UserBuilder.aUser().build();
 		User friend = UserBuilder.aUser()
-				.withProfile(new Profile(Type.ACTION,Type.ROCK,Type.PIZZA,250,TypeOfTransport.CAR))
+				.withProfile(new Profile(Type.ACTION,Type.ROCK,Type.PIZZA,250))
 				.build();
 		user.acceptFriend(friend);
 		Assert.assertEquals(Type.ROCK,user.getFriends().get(0).getProfile().getTypeOfMusic());
@@ -110,7 +105,7 @@ public class UserTest {
     public void test_cancelFriend() {
 		User user = UserBuilder.aUser().build();
 		User friend = UserBuilder.aUser()
-				.withProfile(new Profile(Type.ACTION,Type.ROCK,Type.PIZZA,250,TypeOfTransport.CAR))
+				.withProfile(new Profile(Type.ACTION,Type.ROCK,Type.PIZZA,250))
 				.build();
 		user.sendFriendRequest(friend);
 		Assert.assertEquals(1,user.getFriendsRequests().size());
@@ -145,6 +140,6 @@ public class UserTest {
 					  .withAddress("Quilmes")
 					  .build();
 		user.getSistem().addEvent(event);
-		user.newTour(TypeOfTour.GASOLERA,TypeOfTransport.CAR, user.getFriends(), 300, new Date(), 5, TypeOfScheduler.NIGHT);
+		user.newTour(TypeOfTour.GASOLERA, new Date(), TypeOfScheduler.NIGHT, 300, user.getFriends());
 	}
 }	

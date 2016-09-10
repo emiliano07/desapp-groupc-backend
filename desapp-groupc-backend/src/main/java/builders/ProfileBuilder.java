@@ -2,7 +2,6 @@ package builders;
 
 import model.Profile;
 import model.Type;
-import model.TypeOfTransport;
 
 public class ProfileBuilder {
 	
@@ -10,14 +9,12 @@ public class ProfileBuilder {
 	private Type typeOfMusic;
 	private Type typeOfFood;
 	private int limitAmount;
-	private TypeOfTransport typeOfTransport;
 	
 	public ProfileBuilder(){
 		this.typeOfFilm = Type.NO_FILM;
 		this.typeOfMusic = Type.NO_MUSIC;
 		this.typeOfFood = Type.NO_FOOD;
 		this.limitAmount = 0;
-		this.typeOfTransport = TypeOfTransport.NO_TRANSPORT;
     }
     
 	public static ProfileBuilder aProfile(){
@@ -25,7 +22,7 @@ public class ProfileBuilder {
     }
 	
 	 public Profile build(){
-		 Profile profile =  new Profile(typeOfFilm, typeOfMusic, typeOfFood, limitAmount, typeOfTransport);
+		 Profile profile =  new Profile(typeOfFilm, typeOfMusic, typeOfFood, limitAmount);
 	     return profile;
 	 }
 	 
@@ -49,9 +46,4 @@ public class ProfileBuilder {
 	     return this;
 	 }
 	 
-	 public ProfileBuilder withTypeOfTransport(TypeOfTransport typeOfTransport){
-		 this.typeOfTransport = typeOfTransport;
-	     return this;
-	 }
-
 }

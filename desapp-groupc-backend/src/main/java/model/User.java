@@ -103,9 +103,8 @@ public class User {
 		this.friendsRequests.remove(friend);
 	}
 	
-	public void newTour(TypeOfTour typeOfTour, TypeOfTransport typeOfTransport, ArrayList<User> friends, int limitAmount, Date date, int radio, TypeOfScheduler scheduler){
-	//En el listado de friends el usuario que lo creo esta incluido => friends = user + friend + friend ...
-		this.sistem.newTour(typeOfTour, typeOfTransport, friends, limitAmount, date, radio, scheduler);
+	public void newTour(TypeOfTour typeOfTour, Date date, TypeOfScheduler scheduler, int limitAmount, ArrayList<User> friends){
+		this.sistem.newTour(typeOfTour, date, scheduler, limitAmount, friends);
 	}
 	
 	public void acceptTour(Tour tour){

@@ -7,7 +7,6 @@ import model.Profile;
 import model.Sistem;
 import model.Tour;
 import model.Type;
-import model.TypeOfTransport;
 import model.User;
 
 public class UserBuilder {
@@ -20,7 +19,7 @@ public class UserBuilder {
 	private ArrayList<User> friendsRequests;
 	
 	public UserBuilder(){
-        this.profile = new Profile(Type.NO_FILM, Type.NO_MUSIC, Type.NO_FOOD, 500, TypeOfTransport.NO_TRANSPORT);
+        this.profile = new Profile(Type.NO_FILM, Type.NO_MUSIC, Type.NO_FOOD, 500);
         this.tours = new ArrayList<Tour>();
         this.events = new ArrayList<Event>();
         this.friends = new ArrayList<User>();

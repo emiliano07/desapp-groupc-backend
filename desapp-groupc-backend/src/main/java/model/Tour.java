@@ -6,31 +6,27 @@ import java.util.Date;
 public class Tour {
 	
 	public TypeOfTour type;
-	public Event event1;
-	public Event event2;
-	public int amount;
-	public TypeOfTransport transport;
-	public ArrayList<User> friends;
 	public Date date;
-	public int radio;
 	public TypeOfScheduler scheduler;
+	public int amount;
+	public int limitAmount;
+	public ArrayList<User> friends;
 	public ArrayList<Event> eventOptions1;
 	public ArrayList<Event> eventOptions2;
-	public int limitAmount;
+	public Event event1;
+	public Event event2;
 	
-	public Tour(TypeOfTour type, TypeOfTransport transport, ArrayList<User> friends, Date date, int radio, TypeOfScheduler scheduler, int limitAmoint){
-		this.type = type;
-		this.event1 = null;
-		this.event2 = null;
-		this.amount = 0;
-		this.transport = transport;
-		this.friends = friends;
+	public Tour(TypeOfTour typeOfTour, Date date, TypeOfScheduler scheduler, int limitAmount, ArrayList<User> friends){
+		this.type = typeOfTour;
 		this.date = date;
-		this.radio = radio;
 		this.scheduler = scheduler;
+		this.amount = 0;
+		this.limitAmount = limitAmount;
+		this.friends = friends;
 		this.eventOptions1 = new ArrayList<Event>();
 		this.eventOptions2 = new ArrayList<Event>();
-		this.limitAmount = limitAmoint;
+		this.event1 = null;
+		this.event2 = null;
 	}
 	
 	public Event getEvent1(){
@@ -90,14 +86,6 @@ public class Tour {
 		this.amount = amount;
 	}
 
-	public TypeOfTransport getTransport() {
-		return transport;
-	}
-
-	public void setTransport(TypeOfTransport transport) {
-		this.transport = transport;
-	}
-
 	public ArrayList<User> getFriends() {
 		return friends;
 	}
@@ -112,14 +100,6 @@ public class Tour {
 
 	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public int getRadio() {
-		return radio;
-	}
-
-	public void setRadio(int radio) {
-		this.radio = radio;
 	}
 
 	public TypeOfScheduler getScheduler() {
