@@ -62,7 +62,7 @@ public class UserTest {
 		try {
 			user01.searchFriend(user02);
 		}catch (NoFriendException e) {
-			fail(e.toString());
+			 System.out.println("There is no friend with the name you are looking for");
 		}
 	} 
 	
