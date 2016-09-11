@@ -55,7 +55,7 @@ public class Sistem {
 	}
 
 	public void generateEventOptions(Tour tour){
-		//Deberia hacer una query que traiga los eventos para una fecha, horario, limite de personas y monto indicados
+	//Deberia hacer una query que traiga los eventos para una fecha, horario, limite de personas y monto indicados
 		ArrayList<Event> events = new ArrayList<Event>();
 		for(Event event: this.allEvents){
 			if(this.conditionA(event, tour) && this.conditionB(event, tour) && this.conditionC(event, tour) && this.conditionD(event, tour)){
@@ -133,10 +133,10 @@ public class Sistem {
 	
 	public void logIn(String userName, String password) throws Exception{
 		this.logSistem.logIn(userName, password);
-		//this.obtenerUsuario(userName).setLogueado(true);
+		this.obtainUser(userName).setLogged(true);
 	}
 
-	//public void logOut(String nombreDeUsuario){
-	//	this.obtenerUsuario(nombreDeUsuario).setLogueado(false);
-	//}
+	public void logOut(String userName) throws Exception{
+		this.obtainUser(userName).setLogged(false);
+	}
 }

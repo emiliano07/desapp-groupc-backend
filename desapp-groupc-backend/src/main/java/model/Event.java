@@ -30,7 +30,7 @@ public class Event {
 	//Methods
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	void newSuggestion(Event event){
+	public void newSuggestion(Event event){
 		this.suggestions.add(event);
 	}
 

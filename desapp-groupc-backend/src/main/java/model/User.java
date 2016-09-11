@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import exceptions.UserNotLoggedException;
 import types.TypeOfScheduler;
 import types.TypeOfTour;
 
@@ -17,6 +18,7 @@ public class User {
 	public ArrayList<User> friends;
 	public Sistem sistem; 
 	public ArrayList<User> friendsRequests;
+	public Boolean logged;
 	
 	public User(Sistem sistem, String userName, String password, String mail){
 		this.userName = userName;
@@ -28,6 +30,7 @@ public class User {
 		this.friends = new ArrayList<User>();
 		this.sistem = sistem;
 		this.friendsRequests = new ArrayList<User>();
+		this.logged = false;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +38,6 @@ public class User {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void loadProfile(Profile profile){
-		//Ver si es necesario otro metodo para modificar
 		this.profile = profile;
 	}
 	
@@ -61,7 +63,6 @@ public class User {
 	}
 	
 	public User searchFriend(User user) throws Exception{
-	//ver por que parametro hacemos la busqueda
 		return this.sistem.searchFriend(user);
 	}
 	
@@ -70,13 +71,11 @@ public class User {
 	}
 	
 	public void deleteFriend(User friend){
-	//Elimina la amistad de los dos usuarios
 		this.friends.remove(friend);
 		friend.getFriends().remove(this);
 	}
 	
 	public void acceptFriend(User friend){
-	//Agrega la amistad de los dos usuarios
 		this.friends.add(friend);
 		friend.getFriends().add(this);
 	}
@@ -89,12 +88,22 @@ public class User {
 	//Login Methods
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	public void signIn(){
-		//Ver lo de autenticar
+	public void logIn(String userName, String password) throws Exception{
+		this.sistem.logIn(userName, password);
+	}
+
+	public void logOut(String userName) throws Exception{
+		this.sistem.logOut(userName);
 	}
 	
-	public void signOut(){
-		//Ver lo de autenticar
+	public void isLogged() throws Exception{
+		if(!this.logged){
+			throw new UserNotLoggedException();
+		}
+	}
+	
+	public void changePassword(String userName, String oldPassword, String newPassword)throws Exception{
+		this.sistem.changePassword(userName, oldPassword, newPassword);
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,5 +160,9 @@ public class User {
 
 	public void setFriends(ArrayList<User> friends) {
 		this.friends = friends;
+	}
+	
+	public void setLogged(Boolean logged){
+		this.logged = logged;
 	}
 }

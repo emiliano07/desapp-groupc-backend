@@ -13,7 +13,7 @@ public class LogSistem {
 	public Map<String,String> users;
 	
 	public LogSistem(){
-		this.users = new HashMap<String, String>();
+		this.users = new HashMap<String, String>(); //kEY -> UserName //VALUE -> Password
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////

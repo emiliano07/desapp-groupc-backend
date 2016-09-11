@@ -3,6 +3,6 @@ package exceptions;
 public class UserNotExistException extends Exception {
 
 	public UserNotExistException(){
-		super("The user not exist. Please put another user");
+		super("The user not exist. Please put another");
 	}
 }
