@@ -5,10 +5,10 @@ import java.util.Date;
 
 import model.Event;
 import model.Tour;
-import model.Type;
-import model.TypeOfScheduler;
-import model.TypeOfTour;
 import model.User;
+import types.Type;
+import types.TypeOfScheduler;
+import types.TypeOfTour;
 
 public class TourBuilder {
 	

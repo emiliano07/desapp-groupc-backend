@@ -1,9 +1,10 @@
 package model;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
+import types.Type;
+import types.TypeOfScheduler;
 
 public class Event {
 
@@ -25,10 +26,18 @@ public class Event {
 		this.suggestions = new ArrayList<Event>();
 	}
 	
-	public void setSuggestions(ArrayList<Event> suggestions) {
-		this.suggestions = suggestions;
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	void newSuggestion(Event event){
+		this.suggestions.add(event);
 	}
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Getters & Setters
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	public int getAmount(){
 		return this.amount;
 	}
@@ -43,5 +52,9 @@ public class Event {
 
 	public int getLimitOfPersons(){
 		return this.limitOfPersons;
+	}
+	
+	public void setSuggestions(ArrayList<Event> suggestions) {
+		this.suggestions = suggestions;
 	}
 }

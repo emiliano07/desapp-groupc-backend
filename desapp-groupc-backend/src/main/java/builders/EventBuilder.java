@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import model.Event;
-import model.Type;
-import model.TypeOfScheduler;
+import types.Type;
+import types.TypeOfScheduler;
 
 public class EventBuilder {
 	
