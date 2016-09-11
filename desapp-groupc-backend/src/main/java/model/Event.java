@@ -14,7 +14,7 @@ public class Event {
 	public String address;
 	public int amount;
 	public int limitOfPersons;
-	public ArrayList<Event> suggestions; //Ver como lo hacemos �quienes optaron por esta opci�n, tambi�n optaron por�
+	public ArrayList<Event> suggestions;
 	
 	public Event(ArrayList<Type> types, Date date, TypeOfScheduler scheduler, String address, int amount, int limitOfPersons){
 		this.types = types;
@@ -30,7 +30,7 @@ public class Event {
 	//Methods
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	void newSuggestion(Event event){
+	public void newSuggestion(Event event){
 		this.suggestions.add(event);
 	}
 

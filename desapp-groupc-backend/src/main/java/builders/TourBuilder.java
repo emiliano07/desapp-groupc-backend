@@ -100,5 +100,4 @@ public class TourBuilder {
 		 this.limitAmount = limitAmount;
 	     return this;
 	 }
-
 }

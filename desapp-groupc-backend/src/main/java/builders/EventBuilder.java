@@ -72,5 +72,4 @@ public class EventBuilder {
 		 this.suggestions = suggestions;
 	     return this;
 	 }
-
 }
