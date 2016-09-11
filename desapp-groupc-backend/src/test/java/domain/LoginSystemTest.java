@@ -9,6 +9,7 @@ import exceptions.PasswordNotmatchException;
 import exceptions.UserNameAlreadyExistException;
 import exceptions.UserNameNotmatchException;
 import exceptions.UserNotExistException;
+import exceptions.UserNotLoggedException;
 import model.User;
 
 public class LoginSystemTest {
@@ -48,7 +49,7 @@ public class LoginSystemTest {
 		User user = UserBuilder.aUser().withPassword("1234").build();
 		user.getSistem().users.add(user);
 		user.getSistem().logSistem.users.put("UserName", "1234");
-		user.getSistem().changePassword("UserName", "1234", "unqui");
+		user.changePassword("UserName", "1234", "unqui");
 		Assert.assertEquals("unqui",user.password);
 	}
 	
@@ -58,7 +59,7 @@ public class LoginSystemTest {
 		user.getSistem().users.add(user);
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		try {
-			user.getSistem().changePassword("UserName", "1234", "00");
+			user.changePassword("UserName", "1234", "00");
 		}catch (InvalidPasswordException e) {
 			System.out.println(e);
 		}
@@ -70,7 +71,7 @@ public class LoginSystemTest {
 		user.getSistem().users.add(user);
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		try {
-			user.getSistem().changePassword("UserName", "1234", "desarrolloDeAplicaciones");
+			user.changePassword("UserName", "1234", "desarrolloDeAplicaciones");
 		}catch (InvalidPasswordException e) {
 			System.out.println(e);
 		}
@@ -82,7 +83,7 @@ public class LoginSystemTest {
 		user.getSistem().users.add(user);
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		try {
-			user.getSistem().changePassword("UserNames", "1234", "unqui");
+			user.changePassword("UserNames", "1234", "unqui");
 		}catch (UserNameNotmatchException e) {
 			System.out.println(e);
 		}
@@ -93,7 +94,7 @@ public class LoginSystemTest {
 		User user = UserBuilder.aUser().withPassword("1234").build();
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		try {
-			user.getSistem().changePassword("UserName", "1234", "unqui");
+			user.changePassword("UserName", "1234", "unqui");
 		}catch (UserNotExistException e) {
 			System.out.println(e);
 		}
@@ -105,7 +106,7 @@ public class LoginSystemTest {
 		user.getSistem().users.add(user);
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		try {
-			user.getSistem().changePassword("UserName", "123421", "unqui");
+			user.changePassword("UserName", "123421", "unqui");
 		}catch (PasswordNotmatchException e) {
 			System.out.println(e);
 		}
@@ -114,8 +115,30 @@ public class LoginSystemTest {
 	@Test
     public void logIn() throws Exception{
 		User user = UserBuilder.aUser().build();
-		user.getSistem().registerNewUser("franciolucio", "1234", "franciolucio@gmail.com");
-		user.getSistem().logIn("franciolucio", "1234");;
-		//Assert.assertEquals();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		user.logIn("UserName", "1234");
+		Assert.assertEquals(true,user.logged);
+	}
+	
+	@Test
+    public void logOut() throws Exception{
+		User user = UserBuilder.aUser().build();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		user.logIn("UserName", "1234");
+		Assert.assertEquals(true,user.logged);
+		user.logOut("UserName");
+		Assert.assertEquals(false,user.logged);
+	}
+	
+	@Test
+    public void userNotLogged() throws Exception{
+		User user = UserBuilder.aUser().build();
+		try{
+			user.isLogged();
+		}catch (UserNotLoggedException e){
+			System.out.println(e);
+		}
 	}
 } 
