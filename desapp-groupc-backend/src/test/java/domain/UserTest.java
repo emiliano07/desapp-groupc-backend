@@ -19,7 +19,7 @@ import model.User;
 public class UserTest {
 
 	@Test
-    public void test_addFriend(){
+    public void addFriend(){
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser()
 				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
@@ -29,7 +29,7 @@ public class UserTest {
     }
 	
 	@Test
-    public void test_deleteFriend(){
+    public void deleteFriend(){
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser().build();
 		user01.addFriend(user02); 
@@ -38,7 +38,7 @@ public class UserTest {
     }
 	
 	@Test
-    public void test_searchFriendCorrectly() throws Exception{
+    public void searchFriendCorrectly() throws Exception{
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser()
 				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
@@ -54,7 +54,7 @@ public class UserTest {
 	}
 	
 	@Test
-    public void test_searchFriendIncorrectly() throws Exception{
+    public void searchFriendIncorrectly() throws Exception{
 		User user01 = UserBuilder.aUser().build();
 		User user02 = UserBuilder.aUser()
 				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
@@ -67,7 +67,7 @@ public class UserTest {
 	} 
 	
 	@Test
-    public void test_sendFriendRequest(){
+    public void sendFriendRequest(){
 		User user = UserBuilder.aUser().build();
 		User friend = UserBuilder.aUser()
 				.withProfile(new Profile(Type.ACTION,Type.REGGAETON,Type.PIZZA,250))
@@ -77,7 +77,7 @@ public class UserTest {
 	}
 	
 	@Test
-    public void test_loadProfile() {
+    public void loadProfile() {
 		User user = UserBuilder.aUser().build();
 		Profile profile = ProfileBuilder.aProfile()
 				.withTypeOfMusic(Type.ELECTRONIC)
@@ -90,7 +90,7 @@ public class UserTest {
 	}
 	
 	@Test
-    public void test_acceptFriend() {
+    public void acceptFriend() {
 		User user = UserBuilder.aUser().build();
 		User friend = UserBuilder.aUser()
 				.withProfile(new Profile(Type.ACTION,Type.ROCK,Type.PIZZA,250))
@@ -100,7 +100,7 @@ public class UserTest {
 	}
 	
 	@Test
-    public void test_cancelFriend() {
+    public void cancelFriend() {
 		User user = UserBuilder.aUser().build();
 		User friend = UserBuilder.aUser()
 				.withProfile(new Profile(Type.ACTION,Type.ROCK,Type.PIZZA,250))
@@ -112,7 +112,7 @@ public class UserTest {
 	}
 	
 	@Test
-    public void test_acceptTour() {
+    public void acceptTour() {
 		User user = UserBuilder.aUser().build();
 		Tour tour = TourBuilder.aTour()
 					.withAmount(450)
@@ -122,7 +122,7 @@ public class UserTest {
 	}
 	
 	@Test
-    public void test_AddEvent() {
+    public void addEvent() {
 		User user = UserBuilder.aUser().build();
 		Event event = EventBuilder.aEvent()
 					  .withLimitOfPersons(4)

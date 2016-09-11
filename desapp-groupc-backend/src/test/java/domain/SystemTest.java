@@ -18,7 +18,7 @@ import model.User;
 public class SystemTest {
 	
 	@Test
-    public void test_newTour() {
+    public void newTour() {
 		ArrayList<User> friends = new ArrayList<User>();
 		friends.add(UserBuilder.aUser().build());
 		friends.add(UserBuilder.aUser().build());
