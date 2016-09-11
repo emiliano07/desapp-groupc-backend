@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import types.TypeOfScheduler;
+import types.TypeOfTour;
+
 public class Tour {
 	
 	public TypeOfTour type;
@@ -29,24 +32,13 @@ public class Tour {
 		this.event2 = null;
 	}
 	
-	public Event getEvent1(){
-		return this.event1;
-	}
-	
-	public int getLimitAmount(){
-		return this.limitAmount;
-	}
-	
-	public void setEventOptions1(ArrayList<Event> events){
-		this.eventOptions1 = events;
-	}
-	
-	public ArrayList<Event> getEventOptions2(){
-		return this.eventOptions2;
-	}
-	
-	public void setEventOptions2(ArrayList<Event> events){
-		this.eventOptions2 = events;
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void makeSuggestions(){
+		this.event1.newSuggestion(this.event2);
+		this.event2.newSuggestion(this.event1);
 	}
 
 	public void addEvent1(int eventNumber, Event event){
@@ -58,19 +50,18 @@ public class Tour {
 		this.amount += event.getAmount();
 	}
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Getters & Setters
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void setEvent2(Event event2) {
-		this.event2 = event2;
+	public Event getEvent1(){
+		return this.event1;
 	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
+	
+	public int getLimitAmount(){
+		return this.limitAmount;
+	}	
+	
 	public ArrayList<User> getFriends() {
 		return friends;
 	}
@@ -78,7 +69,11 @@ public class Tour {
 	public Date getDate() {
 		return date;
 	}
-
+	
+	public int getAmount() {
+		return amount;
+	}
+	
 	public TypeOfScheduler getScheduler() {
 		return scheduler;
 	}
@@ -86,9 +81,28 @@ public class Tour {
 	public ArrayList<Event> getEventOptions1() {
 		return eventOptions1;
 	}
+	
+	public ArrayList<Event> getEventOptions2(){
+		return this.eventOptions2;
+	}
+	
+	public void setEventOptions1(ArrayList<Event> events){
+		this.eventOptions1 = events;
+	}
+	
+	public void setEventOptions2(ArrayList<Event> events){
+		this.eventOptions2 = events;
+	}
 
 	public void setEvent1(Event event1) {
 		this.event1 = event1;
 	}
+	
+	public void setEvent2(Event event2) {
+		this.event2 = event2;
+	}
 
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 }

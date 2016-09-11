@@ -4,9 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import builders.UserBuilder;
-import model.InvalidPasswordException;
+import exceptions.InvalidPasswordException;
+import exceptions.UserNameAlreadyExistException;
 import model.User;
-import model.UserNameAlreadyExistException;
 
 public class LoginSystemTest {
 	

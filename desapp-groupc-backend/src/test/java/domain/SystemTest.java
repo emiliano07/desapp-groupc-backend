@@ -11,9 +11,9 @@ import builders.TourBuilder;
 import builders.UserBuilder;
 import model.Event;
 import model.Tour;
-import model.TypeOfScheduler;
-import model.TypeOfTour;
 import model.User;
+import types.TypeOfScheduler;
+import types.TypeOfTour;
 
 public class SystemTest {
 	

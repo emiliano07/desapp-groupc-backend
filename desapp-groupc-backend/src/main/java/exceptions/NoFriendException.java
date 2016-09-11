@@ -1,6 +1,5 @@
-package model;
+package exceptions;
 
-@SuppressWarnings("serial")
 public class NoFriendException extends Exception {
 
 	public NoFriendException(){

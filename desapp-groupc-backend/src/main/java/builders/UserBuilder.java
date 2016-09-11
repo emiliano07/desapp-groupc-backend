@@ -7,8 +7,8 @@ import model.LogSistem;
 import model.Profile;
 import model.Sistem;
 import model.Tour;
-import model.Type;
 import model.User;
+import types.Type;
 
 public class UserBuilder {
 	
@@ -23,9 +23,9 @@ public class UserBuilder {
 	private ArrayList<User> friendsRequests;
 	
 	public UserBuilder(){
-		this.userName = userName;
-		this.password = password;
-		this.mail = mail;
+		this.userName = "UserName";
+		this.password = "Password";
+		this.mail = "Mail";
         this.profile = new Profile(Type.NO_FILM, Type.NO_MUSIC, Type.NO_FOOD, 500);
         this.tours = new ArrayList<Tour>();
         this.events = new ArrayList<Event>();

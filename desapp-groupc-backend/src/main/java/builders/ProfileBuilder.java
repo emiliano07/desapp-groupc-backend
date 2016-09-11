@@ -1,7 +1,7 @@
 package builders;
 
 import model.Profile;
-import model.Type;
+import types.Type;
 
 public class ProfileBuilder {
 	

@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import types.TypeOfScheduler;
+import types.TypeOfTour;
+
 public class User {
 	
 	public String userName;
@@ -27,59 +30,32 @@ public class User {
 		this.friendsRequests = new ArrayList<User>();
 	}
 	
-	public Profile getProfile() {
-		return profile;
-	}
-
-	public String getName(){
-		return this.userName;
-	}
-	
-	public void setPassword(String password){
-		this.password = password;
-	}
-	
-	public void setProfile(Profile profile) {
-		this.profile = profile;
-	}
-
-	public ArrayList<Tour> getTours() {
-		return tours;
-	}
-
-	public void setTours(ArrayList<Tour> tours) {
-		this.tours = tours;
-	}
-
-	public ArrayList<Event> getEvents() {
-		return events;
-	}
-
-	public void setEvents(ArrayList<Event> events) {
-		this.events = events;
-	}
-
-	public Sistem getSistem() {
-		return sistem;
-	}
-
-	public ArrayList<User> getFriendsRequests() {
-		return friendsRequests;
-	}
-
-	public void setFriendsRequests(ArrayList<User> friendsRequests) {
-		this.friendsRequests = friendsRequests;
-	}
-
-	public void setFriends(ArrayList<User> friends) {
-		this.friends = friends;
-	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void loadProfile(Profile profile){
-	//Ver si es necesario otro metodo para modificar
+		//Ver si es necesario otro metodo para modificar
 		this.profile = profile;
 	}
 	
+	public void addEvent(Event event){
+		this.events.add(event);
+	}
+
+	public void newTour(TypeOfTour typeOfTour, Date date, TypeOfScheduler scheduler, int limitAmount, ArrayList<User> friends){
+		this.tours.add(this.sistem.newTour(typeOfTour, date, scheduler, limitAmount, friends));
+	}
+
+	public void acceptTour(Tour tour){
+		this.tours.add(tour);
+		tour.makeSuggestions();
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Friendship Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public void addFriend(User friend){
 		this.friends.add(friend);
 	}
@@ -99,10 +75,6 @@ public class User {
 		friend.getFriends().remove(this);
 	}
 	
-	public ArrayList<User> getFriends(){
-		return this.friends;
-	}
-	
 	public void acceptFriend(User friend){
 	//Agrega la amistad de los dos usuarios
 		this.friends.add(friend);
@@ -113,17 +85,9 @@ public class User {
 		this.friendsRequests.remove(friend);
 	}
 	
-	public void newTour(TypeOfTour typeOfTour, Date date, TypeOfScheduler scheduler, int limitAmount, ArrayList<User> friends){
-		this.tours.add(this.sistem.newTour(typeOfTour, date, scheduler, limitAmount, friends));
-	}
-	
-	public void acceptTour(Tour tour){
-		this.tours.add(tour);
-	}
-	
-	public void addEvent(Event event){
-		this.events.add(event);
-	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Login Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public void signIn(){
 		//Ver lo de autenticar
@@ -131,5 +95,61 @@ public class User {
 	
 	public void signOut(){
 		//Ver lo de autenticar
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Getters & Setters
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public String getName(){
+		return this.userName;
+	}
+	
+	public ArrayList<Tour> getTours() {
+		return tours;
+	}
+	
+	public ArrayList<Event> getEvents() {
+		return events;
+	}
+
+	public Sistem getSistem() {
+		return sistem;
+	}
+	
+	public ArrayList<User> getFriends(){
+		return this.friends;
+	}
+
+	public ArrayList<User> getFriendsRequests() {
+		return friendsRequests;
+	}
+	
+	public void setPassword(String password){
+		this.password = password;
+	}
+	
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+	
+	public void setTours(ArrayList<Tour> tours) {
+		this.tours = tours;
+	}
+	
+	public void setEvents(ArrayList<Event> events) {
+		this.events = events;
+	}
+
+	public void setFriendsRequests(ArrayList<User> friendsRequests) {
+		this.friendsRequests = friendsRequests;
+	}
+
+	public void setFriends(ArrayList<User> friends) {
+		this.friends = friends;
 	}
 }

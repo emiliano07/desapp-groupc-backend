@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import exceptions.NoFriendException;
+import exceptions.UserNotExistException;
+import types.TypeOfScheduler;
+import types.TypeOfTour;
+
 public class Sistem {
 	
 	public ArrayList<User> users;
@@ -15,9 +20,9 @@ public class Sistem {
 		this.logSistem = logSistem;
 	}
 	
-	public void addEvent(Event event){
-		this.allEvents.add(event);
-	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Frindship Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public User searchFriend(User user) throws Exception{
 		this.existsUser(user);
@@ -27,6 +32,14 @@ public class Sistem {
 				usuario = u;
 		}
 		return usuario;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Tour Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void addEvent(Event event){
+		this.allEvents.add(event);
 	}
 	
 	public void existsUser(User user) throws Exception{
@@ -93,6 +106,10 @@ public class Sistem {
 		return event.getAmount() <= (tour.getLimitAmount() - tour.getEvent1().getAmount());
 	}
 	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Login Methods
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public void registerNewUser(String userName, String password, String mail) throws Exception{
 		this.logSistem.newUser(userName, password);
 		User user = new User(this, userName, password, mail);
@@ -114,12 +131,12 @@ public class Sistem {
 		throw new UserNotExistException();
 	}
 	
-	/*public void cerrarSesion(String nombreDeUsuario){
-		this.obtenerUsuario(nombreDeUsuario).setLogueado(false);
-	}*/
-	
-	public void loguearse(String userName, String password) throws Exception{
+	public void logIn(String userName, String password) throws Exception{
 		this.logSistem.logIn(userName, password);
 		//this.obtenerUsuario(userName).setLogueado(true);
 	}
+
+	//public void logOut(String nombreDeUsuario){
+	//	this.obtenerUsuario(nombreDeUsuario).setLogueado(false);
+	//}
 }

@@ -9,12 +9,12 @@ import builders.EventBuilder;
 import builders.ProfileBuilder;
 import builders.TourBuilder;
 import builders.UserBuilder;
+import exceptions.NoFriendException;
 import model.Event;
-import model.NoFriendException;
 import model.Profile;
 import model.Tour;
-import model.Type;
 import model.User;
+import types.Type;
 
 public class UserTest {
 
