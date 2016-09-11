@@ -40,11 +40,20 @@ public class LoginSystemTest {
 		}
 	}
 	
-//	@Test
-//    public void changePassword() throws Exception{
-//		User user = UserBuilder.aUser().build();
-//		user.getSistem().registerNewUser("franciolucio", "1234", "franciolucio@gmail.com");
-//		user.getSistem().changePassword("franciolucio", "1234", "unqui");
-//		Assert.assertEquals("unqui", user.password);
-//	}
-}
+	@Test
+    public void changePassword() throws Exception{
+		User user = UserBuilder.aUser().withPassword("1234").build();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		user.getSistem().changePassword("UserName", "1234", "unqui");
+		Assert.assertEquals("unqui",user.password);
+	}
+	
+	@Test
+    public void logIn() throws Exception{
+		User user = UserBuilder.aUser().build();
+		user.getSistem().registerNewUser("franciolucio", "1234", "franciolucio@gmail.com");
+		user.getSistem().logIn("franciolucio", "1234");;
+		//Assert.assertEquals();
+	}
+} 
