@@ -46,5 +46,6 @@ public class LogSistem {
 	public void changePassword(String userName, String oldPassword, String newPassword)throws Exception{
 		this.validateLog(userName, oldPassword);
 		this.validatePassword(newPassword);
+		this.users.put(userName, newPassword); 
 	}
 }

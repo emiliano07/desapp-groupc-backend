@@ -39,4 +39,12 @@ public class LoginSystemTest {
 			 System.out.println(e);
 		}
 	}
+	
+//	@Test
+//    public void changePassword() throws Exception{
+//		User user = UserBuilder.aUser().build();
+//		user.getSistem().registerNewUser("franciolucio", "1234", "franciolucio@gmail.com");
+//		user.getSistem().changePassword("franciolucio", "1234", "unqui");
+//		Assert.assertEquals("unqui", user.password);
+//	}
 }

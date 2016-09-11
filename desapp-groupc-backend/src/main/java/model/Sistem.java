@@ -97,6 +97,7 @@ public class Sistem {
 		this.logSistem.newUser(userName, password);
 		User user = new User(this, userName, password, mail);
 		this.users.add(user);
+		this.logSistem.users.put(userName, password);
 	}
 	
 	public void changePassword(String userName, String oldPassword, String newPassword)throws Exception{
