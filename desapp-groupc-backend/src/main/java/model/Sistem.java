@@ -71,7 +71,7 @@ public class Sistem {
 	}
 	
 	private Boolean conditionB(Event event, Tour tour){
-		return event.getScheduler() == tour.getScheduler();
+		return event.getScheduler().equals(tour.getScheduler());
 	}
 	
 	private Boolean conditionC(Event event, Tour tour){

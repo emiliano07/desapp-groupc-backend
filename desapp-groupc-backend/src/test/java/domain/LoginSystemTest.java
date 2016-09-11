@@ -5,7 +5,10 @@ import org.junit.Test;
 
 import builders.UserBuilder;
 import exceptions.InvalidPasswordException;
+import exceptions.PasswordNotmatchException;
 import exceptions.UserNameAlreadyExistException;
+import exceptions.UserNameNotmatchException;
+import exceptions.UserNotExistException;
 import model.User;
 
 public class LoginSystemTest {
@@ -47,6 +50,65 @@ public class LoginSystemTest {
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		user.getSistem().changePassword("UserName", "1234", "unqui");
 		Assert.assertEquals("unqui",user.password);
+	}
+	
+	@Test
+    public void changePasswordInvalidPassword01() throws Exception{
+		User user = UserBuilder.aUser().withPassword("1234").build();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		try {
+			user.getSistem().changePassword("UserName", "1234", "00");
+		}catch (InvalidPasswordException e) {
+			System.out.println(e);
+		}
+	}
+	
+	@Test
+    public void changePasswordInvalidPassword02() throws Exception{
+		User user = UserBuilder.aUser().withPassword("1234").build();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		try {
+			user.getSistem().changePassword("UserName", "1234", "desarrolloDeAplicaciones");
+		}catch (InvalidPasswordException e) {
+			System.out.println(e);
+		}
+	}
+	
+	@Test
+    public void changePasswordUserNameNotmatch() throws Exception{
+		User user = UserBuilder.aUser().withPassword("1234").build();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		try {
+			user.getSistem().changePassword("UserNames", "1234", "unqui");
+		}catch (UserNameNotmatchException e) {
+			System.out.println(e);
+		}
+	}
+	
+	@Test
+    public void changePasswordUserNotExist() throws Exception{
+		User user = UserBuilder.aUser().withPassword("1234").build();
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		try {
+			user.getSistem().changePassword("UserName", "1234", "unqui");
+		}catch (UserNotExistException e) {
+			System.out.println(e);
+		}
+	}
+	
+	@Test
+    public void changePasswordPasswordNotmatch() throws Exception{
+		User user = UserBuilder.aUser().withPassword("1234").build();
+		user.getSistem().users.add(user);
+		user.getSistem().logSistem.users.put("UserName", "1234");
+		try {
+			user.getSistem().changePassword("UserName", "123421", "unqui");
+		}catch (PasswordNotmatchException e) {
+			System.out.println(e);
+		}
 	}
 	
 	@Test
