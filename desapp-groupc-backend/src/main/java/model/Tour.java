@@ -58,6 +58,10 @@ public class Tour {
 		return this.event1;
 	}
 	
+	public Event getEvent2(){
+		return this.event2;
+	}
+	
 	public int getLimitAmount(){
 		return this.limitAmount;
 	}	
@@ -70,16 +74,12 @@ public class Tour {
 		return date;
 	}
 	
-	public int getAmount() {
-		return amount;
+	public TypeOfTour getType() {
+		return type;
 	}
 	
 	public TypeOfScheduler getScheduler() {
 		return scheduler;
-	}
-
-	public ArrayList<Event> getEventOptions1() {
-		return eventOptions1;
 	}
 	
 	public ArrayList<Event> getEventOptions2(){

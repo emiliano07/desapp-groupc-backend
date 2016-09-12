@@ -21,14 +21,18 @@ public class Profile {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public Type getTypeOfFilm() {
-		return typeOfFilm;
+		return this.typeOfFilm;
 	}
 
 	public Type getTypeOfMusic() {
-		return typeOfMusic;
+		return this.typeOfMusic;
 	}
 
 	public Type getTypeOfFood() {
-		return typeOfFood;
+		return this.typeOfFood;
+	}
+	
+	public int getLimitAmount() {
+		return this.limitAmount;
 	}
 }

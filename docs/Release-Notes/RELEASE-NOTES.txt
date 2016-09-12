@@ -1,0 +1,17 @@
+---------------------------------------------------------------------
+Entrega 1.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Configuración del entorno de desarrollo.
+* Modelo de objetos completo e implementado.
+* Coverage al 90% con test unitarios.
+* Pantalla prototipo del uso de la API de gmaps.
+* Diagrama UML del modelo.
+* Mockups de las ventanas de la aplicacion.
+
+NOTES:
+* Falta tener en cuenta el medio de transporte.
+
+KNOWN ISSUES:
+* Mejorar algoritmos de busqueda de eventos.
+* Buscar una alternativa a la implementacion de los enums.

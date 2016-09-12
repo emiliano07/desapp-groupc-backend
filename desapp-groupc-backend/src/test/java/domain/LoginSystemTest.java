@@ -50,7 +50,7 @@ public class LoginSystemTest {
 		user.getSistem().users.add(user);
 		user.getSistem().logSistem.users.put("UserName", "1234");
 		user.changePassword("UserName", "1234", "unqui");
-		Assert.assertEquals("unqui",user.password);
+		Assert.assertEquals("unqui", user.password);
 	}
 	
 	@Test
@@ -141,4 +141,4 @@ public class LoginSystemTest {
 			System.out.println(e);
 		}
 	}
-} 
+}
