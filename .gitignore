@@ -9,5 +9,6 @@ buildNumber.properties
 .mvn/timing.properties
 .settings
 .project
+*.log
 .classpath
 /src/main/generated-sources
