@@ -5,16 +5,16 @@ import static org.junit.Assert.fail;
 import org.junit.Assert;
 import org.junit.Test;
 
-import builders.EventBuilder;
-import builders.ProfileBuilder;
-import builders.TourBuilder;
-import builders.UserBuilder;
-import exceptions.NoFriendException;
-import model.Event;
-import model.Profile;
-import model.Tour;
-import model.User;
-import types.Type;
+import domain.Event;
+import domain.Profile;
+import domain.Tour;
+import domain.User;
+import domain.builders.EventBuilder;
+import domain.builders.ProfileBuilder;
+import domain.builders.TourBuilder;
+import domain.builders.UserBuilder;
+import domain.exceptions.NoFriendException;
+import domain.types.Type;
 
 public class UserTest {
 

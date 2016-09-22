@@ -3,14 +3,14 @@ package domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-import builders.UserBuilder;
-import exceptions.InvalidPasswordException;
-import exceptions.PasswordNotmatchException;
-import exceptions.UserNameAlreadyExistException;
-import exceptions.UserNameNotmatchException;
-import exceptions.UserNotExistException;
-import exceptions.UserNotLoggedException;
-import model.User;
+import domain.User;
+import domain.builders.UserBuilder;
+import domain.exceptions.InvalidPasswordException;
+import domain.exceptions.PasswordNotmatchException;
+import domain.exceptions.UserNameAlreadyExistException;
+import domain.exceptions.UserNameNotmatchException;
+import domain.exceptions.UserNotExistException;
+import domain.exceptions.UserNotLoggedException;
 
 public class LoginSystemTest {
 	

@@ -6,14 +6,14 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
-import builders.EventBuilder;
-import builders.TourBuilder;
-import builders.UserBuilder;
-import model.Event;
-import model.Tour;
-import model.User;
-import types.TypeOfScheduler;
-import types.TypeOfTour;
+import domain.Event;
+import domain.Tour;
+import domain.User;
+import domain.builders.EventBuilder;
+import domain.builders.TourBuilder;
+import domain.builders.UserBuilder;
+import domain.types.TypeOfScheduler;
+import domain.types.TypeOfTour;
 
 public class SystemTest {
 	
