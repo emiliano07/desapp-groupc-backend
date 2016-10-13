@@ -9,8 +9,9 @@ import domain.types.Type;
 import domain.types.TypeOfScheduler;
 
 @XmlRootElement(name="event")
-public class Event {
+public class Event extends Entity{
 
+	private static final long serialVersionUID = 5114264723960999199L;
 	public ArrayList<Type> types;
 	public Date date;
 	public TypeOfScheduler scheduler;
@@ -19,6 +20,7 @@ public class Event {
 	public int limitOfPersons;
 	public ArrayList<Event> suggestions;
 	
+	public Event(){}
 	public Event(ArrayList<Type> types, Date date, TypeOfScheduler scheduler, String address, int amount, int limitOfPersons){
 		this.types = types;
 		this.date = date;
@@ -59,5 +61,9 @@ public class Event {
 	
 	public void setSuggestions(ArrayList<Event> suggestions) {
 		this.suggestions = suggestions;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

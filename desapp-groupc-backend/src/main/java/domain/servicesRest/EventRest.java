@@ -23,10 +23,9 @@ public class EventRest {
 	}
 
 	@GET
-	@Path("/{type}")
+	@Path("/getEvent/{eventId}")
 	@Produces("application/json")
-	public List<Event> findPostsPublishedByAuthorId(@PathParam("type") final int amount) {
-		List<Event> events = eventDAO.getEvents(amount);
-		return events;
+	public Event findPostsPublishedByAuthorId(@PathParam("eventId") final int id) {
+		return eventDAO.getEvents().get(id);
 	}
 }
