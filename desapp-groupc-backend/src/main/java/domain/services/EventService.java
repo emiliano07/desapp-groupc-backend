@@ -27,8 +27,8 @@ public class EventService extends GenericService<Event> {
 	}
 
 	@Transactional
-	public Event obtenerEvents(String address) {
-		return getEventRepository().getEventByAdress(address);
+	public Event obtenerEvent(int id) {
+		return getEventRepository().getEventById(id);
 	}
 
 }

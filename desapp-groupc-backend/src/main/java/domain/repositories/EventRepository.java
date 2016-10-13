@@ -14,11 +14,11 @@ public class EventRepository extends HibernateGenericDao<Event> implements Gener
 		return Event.class;
 	}
 
-	public Event getEventByAdress(String address) {
+	public Event getEventById(int id) {
 		String hql = "SELECT e FROM " + Event.class.getName() + " e "
-				+ "WHERE e.address = :address";
+				+ "WHERE e.id = :id";
 		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(hql);
-		query.setParameter("address", address);
+		query.setParameter("id", id);
 		Event event = (Event) query.uniqueResult();
 		return event;
 	}

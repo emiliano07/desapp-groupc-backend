@@ -25,6 +25,6 @@ public class EventServicesTest {
     public void testGetEvent() {
 		Event event = EventBuilder.aEvent().withAddress("Quilmes").build();
 		eventService.save(event);
-        Assert.assertEquals(2,eventService.obtenerEvents("Quilmes").limitOfPersons);
+        Assert.assertEquals(2,eventService.obtenerEvent(event.getId()).limitOfPersons);
 	}
 }
