@@ -100,4 +100,8 @@
 	<bean id="persistence.eventRepository" class="domain.repositories.EventRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
+	
+	<bean id="persistence.userRepository" class="domain.repositories.UserRepository">
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
 </beans>

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import domain.exceptions.UserNotLoggedException;
 import domain.types.TypeOfScheduler;
 import domain.types.TypeOfTour;
 
+@XmlRootElement(name="user")
 public class User extends Entity{
 	
 	private static final long serialVersionUID = -8201505803898337489L;
@@ -22,6 +25,12 @@ public class User extends Entity{
 	public List<User> friendsRequests;
 	public Boolean logged;
 	
+	public User() {}
+	public User(String userName, String password, String mail) {
+		this.userName = userName;
+		this.password = password;
+		this.mail = mail;
+	}
 	public User(Sistem sistem, String userName, String password, String mail){
 		this.userName = userName;
 		this.password = password;

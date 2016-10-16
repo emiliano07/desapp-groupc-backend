@@ -30,6 +30,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<jaxrs:server id="event">
 		<jaxrs:serviceBeans>
 			<ref bean="eventRest" />
+			<ref bean="userRest" />
 			<!--<ref bean="userRest" /> -->
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
@@ -52,8 +53,14 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 			<ref bean="services.event" />
 		</constructor-arg>
 	</bean>
+	<bean id="userRest" class="domain.servicesRest.UserRest">
+		<constructor-arg>
+			<ref bean="services.user" />
+		</constructor-arg>
+	</bean>
 	<bean id="setup.exampleData" class="domain.servicesRest.SetupExampleData" init-method="init">
 		<property name="eventService" ref="services.event" />
+		<property name="userService" ref="services.user" />
 	</bean>
 
 </beans>
