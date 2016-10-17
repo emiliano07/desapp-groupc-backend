@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import domain.Event;
+import domain.Profile;
 import domain.User;
 import domain.builders.EventBuilder;
+import domain.builders.ProfileBuilder;
 import domain.exceptions.SingUpException;
 import domain.services.EventService;
 import domain.services.UserService;
@@ -41,9 +43,12 @@ public class SetupExampleData {
     @Transactional
     public void init() throws SingUpException {
     	User user = userService.signUp("franciolucio","unqui","franciolucio@gmail.com");
+    	Profile profile = ProfileBuilder.aProfile().build();
     	user.setFriends(new ArrayList<User>());
+    	this.userService.addProfileForUser(user, profile);
     	User friend01 = new User("emimancu","sanlorenzo","emimancu@gmail.com");
     	User friend02 = new User("alanmarino","rockandroll","alanmarino@gmail.com");
+    	
     	this.userService.addFriendForUser(user, friend01);
     	this.userService.addFriendForUser(user, friend02);
     	Event event01 = EventBuilder.aEvent().withAddress("Pilar").build();

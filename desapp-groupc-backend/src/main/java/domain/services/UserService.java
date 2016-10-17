@@ -3,6 +3,7 @@ package domain.services;
 import org.springframework.transaction.annotation.Transactional;
 
 import domain.Event;
+import domain.Profile;
 import domain.User;
 import domain.exceptions.SingUpException;
 import domain.exceptions.StainException;
@@ -66,6 +67,12 @@ public class UserService extends GenericService<User>{
 	 @Transactional
 	 public void addFriendForUser(User user,User friend) {
 		 user.addFriend(friend);
+		 userRepository.update(user);
+	 }
+	 
+	 @Transactional
+	 public void addProfileForUser(User user,Profile profile) {
+		 user.loadProfile(profile);
 		 userRepository.update(user);
 	 }
 	 

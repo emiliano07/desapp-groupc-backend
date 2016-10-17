@@ -10,6 +10,7 @@ public class Profile extends Entity{
 	public Type typeOfFood;
 	public int limitAmount;
 	
+	public Profile () {}
 	public Profile(Type typeOfFilm, Type typeOfMusic, Type typeOfFood, int limitAmount){
 		this.typeOfFilm = typeOfFilm;
 		this.typeOfMusic = typeOfMusic;
