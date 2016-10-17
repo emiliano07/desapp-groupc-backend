@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import domain.Event;
 import domain.User;
 import domain.exceptions.SingUpException;
+import domain.exceptions.StainException;
 import domain.repositories.UserRepository;
 
 public class UserService extends GenericService<User>{
@@ -66,6 +67,11 @@ public class UserService extends GenericService<User>{
 	 public void addFriendForUser(User user,User friend) {
 		 user.addFriend(friend);
 		 userRepository.update(user);
+	 }
+	 
+	 @Transactional
+	 public void updateUser(User user) throws StainException {
+		 userRepository.saveOrUpdate(user);
 	 }
 }
 

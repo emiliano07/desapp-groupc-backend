@@ -6,8 +6,9 @@ import java.util.Date;
 import domain.types.TypeOfScheduler;
 import domain.types.TypeOfTour;
 
-public class Tour {
+public class Tour extends Entity{
 	
+	private static final long serialVersionUID = 6616766018493232832L;
 	public TypeOfTour type;
 	public Date date;
 	public TypeOfScheduler scheduler;

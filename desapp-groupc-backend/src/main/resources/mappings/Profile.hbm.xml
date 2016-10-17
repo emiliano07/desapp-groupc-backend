@@ -3,19 +3,13 @@
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
 	default-cascade="save-update">
-	<class name="domain.Event">
+	<class name="domain.Profile">
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		<property name="date" />
-		<property name="scheduler" />
-		<property name="address" />
-		<property name="amount" />
-		<property name="limitOfPersons" />
-		<bag name="suggestions" lazy="false" >
-            <key column="SuggestionsOfEventId" />
-            <many-to-many class="domain.Event"  />
-        </bag>
-		
+		<property name="typeOfFilm" />
+		<property name="typeOfMusic" />
+		<property name="typeOfFood" />
+		<property name="limitAmount" />
 	</class>
 </hibernate-mapping>

@@ -2,8 +2,9 @@ package domain;
 
 import domain.types.Type;
 
-public class Profile {
+public class Profile extends Entity{
 	
+	private static final long serialVersionUID = -6473516919711717013L;
 	public Type typeOfFilm;
 	public Type typeOfMusic;
 	public Type typeOfFood;

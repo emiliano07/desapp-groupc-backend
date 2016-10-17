@@ -10,6 +10,23 @@
 		<property name="userName" />
 		<property name="password" />
 		<property name="mail" />
+		<one-to-one name="profile" class="domain.Profile" cascade="all"/>
+		<bag name="tours" lazy="false" >
+            <key column="TourUserId" />
+            <many-to-many class="domain.Tour"  />
+        </bag>
+        <bag name="events" lazy="false" >
+            <key column="EventUserId" />
+            <many-to-many class="domain.Event"  />
+        </bag>
+        <bag name="friends" lazy="false" >
+            <key column="FriendsUserId" />
+            <many-to-many class="domain.User"  />
+        </bag>
+        <bag name="friendsRequests" lazy="false" >
+            <key column="FriendsRequestsUserId" />
+            <many-to-many class="domain.User"  />
+        </bag>
 		<property name="logged" type="boolean"/>
 	</class>
 </hibernate-mapping>

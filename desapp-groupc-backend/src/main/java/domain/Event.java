@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,16 +13,16 @@ import domain.types.TypeOfScheduler;
 public class Event extends Entity{
 
 	private static final long serialVersionUID = 5114264723960999199L;
-	public ArrayList<Type> types;
+	public List<Type> types;
 	public Date date;
 	public TypeOfScheduler scheduler;
 	public String address;
 	public int amount;
 	public int limitOfPersons;
-	public ArrayList<Event> suggestions;
+	public List<Event> suggestions;
 	
 	public Event(){}
-	public Event(ArrayList<Type> types, Date date, TypeOfScheduler scheduler, String address, int amount, int limitOfPersons){
+	public Event(List<Type> types, Date date, TypeOfScheduler scheduler, String address, int amount, int limitOfPersons){
 		this.types = types;
 		this.date = date;
 		this.scheduler = scheduler;
